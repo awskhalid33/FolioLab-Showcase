@@ -10,6 +10,8 @@ The project takes portfolio optimisation and backtesting beyond a static noteboo
 
 **Current version:** v0.3.2 | **Status:** Publicly deployed | **Source code:** Private
 
+![FolioLab quantitative research application](Assets/01-welcome.png)
+
 ---
 
 ## Why I Built FolioLab
@@ -21,6 +23,67 @@ A portfolio that appears optimal using historical returns and correlations may b
 I developed FolioLab to make these assumptions visible and testable.
 
 Rather than presenting an optimal portfolio as a recommendation, FolioLab helps users investigate *why* a particular allocation emerges, *how* it behaves under different scenarios and *where* the modelling limitations lie.
+
+
+## Application Screenshots
+
+The examples below use fictional institutional portfolios and synthetic market data. All results are illustrative and are not investment forecasts.
+
+### 1. Portfolio Optimisation | Efficient Frontier
+
+![FolioLab efficient frontier](Assets/02-efficient-frontier.png)
+
+**Mean-variance portfolio optimisation.** The chart compares the existing allocation with the global minimum-variance and maximum fitted-Sharpe portfolios. It also distinguishes the mean-variance-efficient frontier from the inefficient lower boundary.
+
+This demonstrates constrained optimisation, covariance estimation and the sensitivity of portfolio selection to fitted historical inputs.
+
+### 2. Strategy Validation | Walk-Forward Backtesting
+
+![FolioLab walk-forward backtesting](Assets/03-walkforward-backtesting.png)
+
+**Out-of-sample strategy evaluation.** A prior-data-only minimum-volatility strategy is compared with a retrospective static-target portfolio over the same evaluation dates and with the same initial wealth.
+
+The analysis includes rebalancing and simplified transaction-cost assumptions. The comparison illustrates that an optimised strategy does not necessarily outperform a static allocation.
+
+### 3. Scenario Analysis | Interest-Rate Stress
+
+![Pension portfolio stress assumptions](Assets/04-pension-stress-test.png)
+
+**Illustrative rising-rates scenario.** FolioLab applies explicit asset-level shocks to a fictional UK defined-benefit pension investment portfolio.
+
+The example produces an assumed one-period portfolio change of **-8.74%**. This is a scenario input calculation, not an estimated market loss probability.
+
+![Holding-level stress contributions](Assets/04-pension-stress-test-graph.png)
+
+**Risk attribution.** Individual holding contributions explain how the aggregate stress result is constructed and which exposures drive the assumed loss.
+
+These scenarios are not full yield-curve repricing, liability valuation or regulatory capital calculations.
+
+### 4. Conditional Monte Carlo | Wealth Simulation
+
+![FolioLab Monte Carlo wealth simulation](Assets/05-monte-carlo-graph.png)
+
+**Stochastic portfolio simulation.** The application generates possible wealth paths under explicitly selected return and covariance assumptions.
+
+This example uses 2,000 paths, a seeded multivariate Student-t innovation model and an initial wealth of GBP 10,000.
+
+The paths demonstrate uncertainty under a statistical model. They are **not forecasts**, and they do not capture every source of market or parameter uncertainty.
+
+### 5. Model Validation | Value at Risk Backtesting
+
+![FolioLab Value at Risk backtesting](Assets/06-var-backtesting-graph.png)
+
+**Rolling Value at Risk and Expected Shortfall diagnostics.** The chart compares realised portfolio losses with forecasts estimated using only prior observations.
+
+For the fictional general insurance portfolio, the illustrated 95% historical VaR backtest records **10 breaches across 155 out-of-sample observations**, equivalent to approximately 6.45%.
+
+The chart identifies individual exceedances and provides information for evaluating risk-model behaviour. Observed breach frequency alone does not establish statistical calibration or predictive reliability.
+
+---
+
+**[Explore the interactive FolioLab application](https://foliolab.streamlit.app/)**
+
+
 
 ## Key Capabilities
 
